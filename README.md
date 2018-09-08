@@ -54,3 +54,18 @@ You may also setup an email server locally.  See "email.properties.localhost.sam
 
 ### AuthenticationSuccessHandler configuration for Custom Login Page article
 If you want to activate the configuration for the article [Custom Login Page for Returning User](http://www.baeldung.com/custom-login-page-for-returning-user), then you need to comment the @Component("myAuthenticationSuccessHandler") annotation in the MySimpleUrlAuthenticationSuccessHandler and uncomment the same in MyCustomLoginAuthenticationSuccessHandler.
+
+
+
+### Modification
+1.  spring-boot  2.0.1
+2.  MySQLDialect --> MySQL5Dialect
+import org.hibernate.dialect.MySQL5Dialect;
+public class CustomMySQLDialect extends MySQL5Dialect {
+    @Override
+    public boolean dropConstraints() {
+        return false;
+    }
+}
+3. server.port=8081
+4. spring.mail.host=smtp.sina.com
